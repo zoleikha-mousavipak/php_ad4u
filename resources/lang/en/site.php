@@ -19,6 +19,7 @@ return [
     'please_select' => 'Please Select',
     'ad_index' => 'Profile Index',
     'ad_all' => 'All Ads',
+    'image' => 'Image',
 
     // Category
     'category_corporate' => 'Corporate',

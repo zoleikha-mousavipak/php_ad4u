@@ -17,6 +17,7 @@
                             @else
                             <i class="fas fa-times text-warning"></i>
                             @endif
+                            <a href="{{ route('ads.edit', $ad) }}"><i class="fas fa-pen"></i></a>
                             <form action="{{ route('ads.destroy', $ad) }}" method="POST">
                                 @csrf
                                 @method('DELETE')

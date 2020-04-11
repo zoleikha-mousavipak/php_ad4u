@@ -4,12 +4,16 @@ namespace App\Services;
 
 use App\Models\Ad;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class AdService extends BaseService
 {
-    public function __construct(Ad $ad)
+    protected $imageService;
+
+    public function __construct(Ad $ad, ImageService $imageService)
     {
         $this->model = $ad;
+        $this->imageService = $imageService;
     }
 
     public function createAd($request)
@@ -24,7 +28,39 @@ class AdService extends BaseService
         $ad->longitude = $request->longitude;
         $ad->user_id = Auth::user()->id;
         $ad->save();
+
+        if ($request->images) {
+            $this->imageService->createImages($request->images, $ad);
+        }
+
         return $ad;
+    }
+
+    public function updateAd($ad, $request)
+    {
+        $ad->title = $request->title;
+        $ad->category_id = $request->category;
+        $ad->type_id = $request->type;
+        $ad->price = $request->price;
+        $ad->description = $request->description;
+        $ad->latitude = $request->latitude;
+        $ad->longitude = $request->longitude;
+        $ad->user_id = Auth::user()->id;
+        $ad->update();
+
+    }
+
+    public function deleteAd($ad)
+    {
+        foreach ($ad->images as $image) {
+            Storage::disk('images')->delete($image->url);
+        }
+        $ad->delete();
+    }
+
+    public function userAd($id)
+    {
+        return $this->model->where('user_id', Auth::user()->id)->where('id', $id)->first();
     }
 
     public function userAds()

@@ -11,10 +11,9 @@ use Illuminate\Support\Facades\Auth;
 
 class AdController extends Controller
 {
-
+    protected $adService;
     protected $categoryService;
     protected $typeService;
-    protected $adService;
 
     public function __construct(AdService $adService, CategoryService $categoryService, TypeService $typeService)
     {
@@ -30,7 +29,7 @@ class AdController extends Controller
      */
     public function index()
     {
-        return "1index";
+        return 1;
     }
 
     /**
@@ -66,9 +65,9 @@ class AdController extends Controller
     public function show($id)
     {
         $ad = $this->adService->find($id);
-        $owner=false;
-        if (Auth::user() && (Auth::user()->id === $ad->user_id)){
-            $owner=true;
+        $owner = false;
+        if (Auth::user() && (Auth::user()->id === $ad->user_id)) {
+            $owner = true;
         }
         return view('ads.view', compact('ad', 'owner'));
     }
@@ -81,7 +80,10 @@ class AdController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ad = $this->adService->userAd($id);
+        $categoriesList = $this->categoryService->categoriesList();
+        $typesList = $this->typeService->typesList();
+        return view('ads.edit', compact('ad', 'categoriesList', 'typesList'));
     }
 
     /**
@@ -91,9 +93,11 @@ class AdController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(adRequest $request, $id)
     {
-        //
+        $ad = $this->adService->find($id);
+        $this->adService->updateAd($ad, $request);
+        return redirect(route('ads.show', $ad));
     }
 
     /**
@@ -104,6 +108,8 @@ class AdController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ad = $this->adService->find($id);
+        $this->adService->deleteAd($ad);
+        return redirect(route('welcome'));
     }
 }
