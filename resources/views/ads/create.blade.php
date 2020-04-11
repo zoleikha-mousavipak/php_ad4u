@@ -91,6 +91,19 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="image"
+                                class="col-md-4 col-form-label text-md-right">{{ __('site.description') }}</label>
+                            <div class="col-md-6">
+                                <textarea id="description" name="description"
+                                    class="form-control">{{ old('description') }}</textarea>
+                                @error('description')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="location"
                                 class="col-md-4 col-form-label text-md-right">{{ __('site.my_location') }}</label>
                             <div class="col-md-6">

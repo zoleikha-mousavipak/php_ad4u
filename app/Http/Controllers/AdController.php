@@ -66,7 +66,11 @@ class AdController extends Controller
     public function show($id)
     {
         $ad = $this->adService->find($id);
-        return view('ads.view', compact('ad'));
+        $owner=false;
+        if (Auth::user() && (Auth::user()->id === $ad->user_id)){
+            $owner=true;
+        }
+        return view('ads.view', compact('ad', 'owner'));
     }
 
     /**

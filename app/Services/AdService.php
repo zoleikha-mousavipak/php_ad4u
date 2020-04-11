@@ -29,11 +29,11 @@ class AdService extends BaseService
 
     public function userAds()
     {
-        return $this->model->where('user_id', Auth::user()->id)->orderby('id', 'desc')->paginate(3);
+        return $this->model->where('user_id', Auth::user()->id)->orderby('id', 'desc')->paginate(env('APP_PAGINATION'));
     }
 
     public function allAds()
     {
-        return $this->model->whereStatus(true)->orderby('id', 'desc')->paginate(3);
+        return $this->model->whereStatus(true)->orderby('id', 'desc')->paginate(env('APP_PAGINATION'));
     }
 }

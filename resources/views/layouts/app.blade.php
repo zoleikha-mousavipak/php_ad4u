@@ -47,7 +47,7 @@
                             </p>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('welcome') }}">| {{ __('site.ad_all') }}</a>
+                            <a class="nav-link" href="{{ route('welcome') }}">{{ __('site.ad_all') }}</a>
                         </li>
                         <!-- Authentication Links -->
                         @guest
@@ -61,13 +61,13 @@
                         @endif
                         @else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('ads.create') }}">| {{ __('site.ad_new') }}</a>
+                            <a class="nav-link" href="{{ route('ads.create') }}">{{ __('site.ad_new') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('profile.ads') }}">| {{ __('site.ad_my') }}</a>
+                            <a class="nav-link" href="{{ route('profile.ads') }}">{{ __('site.ad_my') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('profile.index') }}">| {{ __('site.ad_index') }}</a>
+                            <a class="nav-link" href="{{ route('profile.index') }}">{{ __('site.ad_index') }}</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -80,7 +80,6 @@
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('auth.logout') }}
                                 </a>
-
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                     style="display: none;">
                                     @csrf
@@ -95,6 +94,7 @@
         <main class="py-4">
             @yield('content')
         </main>
+        @include('layouts.footer')
     </div>
 </body>
 
