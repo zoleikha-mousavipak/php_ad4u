@@ -1,11 +1,10 @@
-@extends('layouts.app')
+@extends ('layouts.app')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            @foreach ($ads as $ad)
-            <div class="card mb-3">
+            <div class="card">
                 <div class="card-header">{{ $ad->title }}</div>
                 <div class="card-body">
                     <h5>{{ __('site.category_'.$ad->category->title) }}</h5>
@@ -16,8 +15,6 @@
                         src="http://maps.google.com/maps?q={{$ad->latitude}},{{$ad->longitude}}&z=15&output=embed"></iframe>
                 </div>
             </div>
-            @endforeach
-            {{ $ads->links() }}
         </div>
     </div>
 </div>

@@ -2,10 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AdRequest;
+use App\Services\AdService;
+use App\Services\CategoryService;
+use App\Services\TypeService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdController extends Controller
 {
+
+    protected $categoryService;
+    protected $typeService;
+    protected $adService;
+
+    public function __construct(AdService $adService, CategoryService $categoryService, TypeService $typeService)
+    {
+        $this->adService = $adService;
+        $this->categoryService = $categoryService;
+        $this->typeService = $typeService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +40,9 @@ class AdController extends Controller
      */
     public function create()
     {
-        return view('ads.create');
+        $categoriesList = $this->categoryService->categoriesList();
+        $typesList = $this->typeService->typesList();
+        return view('ads.create', compact('categoriesList', 'typesList'));
     }
 
     /**
@@ -32,9 +51,10 @@ class AdController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AdRequest $request)
     {
-        //
+        $ad = $this->adService->createAd($request);
+        return redirect(route('ads.show', $ad));
     }
 
     /**
@@ -45,7 +65,8 @@ class AdController extends Controller
      */
     public function show($id)
     {
-        //
+        $ad = $this->adService->find($id);
+        return view('ads.view', compact('ad'));
     }
 
     /**

@@ -22,7 +22,7 @@ class Ad extends Model
 
     public function type()
     {
-        return $this->belongsTo('Add\Models\Type');
+        return $this->belongsTo('App\Models\Type');
     }
 
     public function user()
