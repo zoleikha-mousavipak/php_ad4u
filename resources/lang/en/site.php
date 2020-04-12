@@ -9,6 +9,9 @@ return [
     'description' => 'Description',
     'category' => 'Category',
     'type' => 'Type',
+    'profile' => 'Profile',
+    'search' => 'Search',
+    'title_description' => 'Enter title or description',
 
     // Ads
     'ad_new' => 'New Ad',
@@ -17,11 +20,12 @@ return [
     'ad_my' => 'My Ads',
     'my_location' => 'Location',
     'please_select' => 'Please Select',
-    'ad_index' => 'Profile Index',
     'ad_all' => 'All Ads',
-    'image' => 'Image',
+    'ad_image' => 'Images',
+
 
     // Category
+    'all_categories' => 'All categories',
     'category_corporate' => 'Corporate',
     'category_electronics' => 'Electronics',
     'category_employment' => 'Employment',

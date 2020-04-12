@@ -22,3 +22,5 @@ Route::prefix('profile')->group(function () {
     Route::get('/', 'ProfileController@index')->name('profile.index');
     Route::get('ads', 'ProfileController@ads')->name('profile.ads');
 });
+
+Route::post('search', 'AdController@search')->name('search');

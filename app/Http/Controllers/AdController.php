@@ -112,4 +112,12 @@ class AdController extends Controller
         $this->adService->deleteAd($ad);
         return redirect(route('welcome'));
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->get('query');
+        $category = $request->get('category');
+        $results = $this->adService->searchAd($query, $category);
+        return view('ads.search', compact('results'));
+    }
 }

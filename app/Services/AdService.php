@@ -47,7 +47,6 @@ class AdService extends BaseService
         $ad->longitude = $request->longitude;
         $ad->user_id = Auth::user()->id;
         $ad->update();
-
     }
 
     public function deleteAd($ad)
@@ -71,5 +70,20 @@ class AdService extends BaseService
     public function allAds()
     {
         return $this->model->whereStatus(true)->orderby('id', 'desc')->paginate(env('APP_PAGINATION'));
+    }
+
+    public function searchAd($query, $category)
+    {
+        if ($category) {
+            return $this->model
+                ->where('category_id', $category)
+                ->where(function ($q) use ($query) {
+                    $q->where('title', 'LIKE', "%{$query}%")
+                        ->orwhere('description', 'LIKE', "%{$query}%");
+                })
+                ->paginate(env('APP_PAGINATION'));
+        }
+        return $this->model->where('title', 'LIKE', "%{$query}%")->orwhere('description', 'LIKE', "%{$query}%")
+            ->paginate(env('APP_PAGINATION'));
     }
 }
