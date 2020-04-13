@@ -13,6 +13,7 @@ return [
     'search' => 'Search',
     'title_description' => 'Enter title or description',
 
+
     // Ads
     'ad_new' => 'New Ad',
     'ad_edit' => 'Edit Ad',
@@ -41,5 +42,17 @@ return [
     'type_for_rent' => 'For Rent',
     'type_highest_bidder' => 'Highest Bidder',
     'type_request' => 'Request',
+
+    // Profile
+    'profile' => 'Profile',
+    'profile_text' => 'Here you can change your profile information and add new advertisment.',
+    'profile_dear' => 'Dear',
+    'profile_edit' => 'Edit Profile',
+    'last_login: ' => 'Last Login: ',
+    'profile_email' => 'E-Mail Address',
+    'profile_name' => 'Name',
+    'new_password' => 'New password',
+    'confirm_password' => 'Confirm Password',
+    'profile_update' => 'Update',
 
 ];

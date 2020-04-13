@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,8 @@ Route::resource('ads', 'AdController');
 Route::prefix('profile')->group(function () {
     Route::get('/', 'ProfileController@index')->name('profile.index');
     Route::get('ads', 'ProfileController@ads')->name('profile.ads');
+    Route::get('edit', 'ProfileController@edit')->name('profile.edit');
+    Route::post('edit', 'ProfileController@update')->name('profile.update');
 });
 
 Route::post('search', 'AdController@search')->name('search');
