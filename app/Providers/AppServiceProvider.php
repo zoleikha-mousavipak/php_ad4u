@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
 use App\Services\CategoryService;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
@@ -15,11 +16,10 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register(CategoryService $categoryService)
+    public function register()
     {
         if (Schema::hasTable('categories')) {
-            $this->categoryService = $categoryService;
-            $categoriesList = $this->categoryService->categoriesList();
+            $categoriesList = Category::where('status', true)->orderBy('title')->get();
             view()->share('categoriesList', $categoriesList);
         }
     }
