@@ -18,9 +18,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'admin',
                 'password' => Hash::make('admin@admin.com'),
-                'rememberToken' => 'admin@admin.com',
                 'email' => 'admin@admin.com',
-                'email_verified_at' => 'admin@admin.com',
                 'admin' => true,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -28,9 +26,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'zoleikha',
                 'password' => Hash::make('zmpak2000@gmail.com'),
-                'rememberToken' => 'zmpak2000@gmail.com',
                 'email' => 'zmpak2000@gmail.com',
-                'email_verified_at' => 'zmpak2000@gmail.com',
                 'admin' => true,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')

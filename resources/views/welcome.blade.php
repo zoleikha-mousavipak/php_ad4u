@@ -11,21 +11,6 @@
                         <div class="col">
                             <a href="{{ route('ads.show', $ad) }}">{{ $ad->title }}</a>
                         </div>
-                        {{-- @if($owner) --}}
-                        <div class="col text-right">
-                            @if($ad->status)
-                            <i class="fas fa-check text-success"></i>
-                            @else
-                            <i class="fas fa-times text-warning"></i>
-                            @endif
-                            <a href="{{ route('ads.edit', $ad) }}"><i class="fas fa-pen"></i></a>
-                            <form action="{{ route('ads.destroy', $ad) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="fas fa-trash text-danger"></button>
-                            </form>
-                        </div>
-                        {{-- @endif --}}
                     </div>
                 </div>
                 <div class="card-body">

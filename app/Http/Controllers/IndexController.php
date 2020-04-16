@@ -17,7 +17,9 @@ class IndexController extends Controller
 
     public function index()
     {
+
         $ads = $this->adService->allAds();
+        $owner = false;
         return view('welcome', compact('ads'));
     }
 }
