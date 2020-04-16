@@ -15,9 +15,13 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(CategoryService $categoryService)
     {
-        //
+        if (Schema::hasTable('categories')) {
+            $this->categoryService = $categoryService;
+            $categoriesList = $this->categoryService->categoriesList();
+            view()->share('categoriesList', $categoriesList);
+        }
     }
 
     /**
@@ -25,12 +29,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(CategoryService $categoryService)
+    public function boot()
     {
-        if (Schema::hasTable('categories')) {
-            $this->categoryService = $categoryService;
-            $categoriesList = $this->categoryService->categoriesList();
-            view()->share('categoriesList', $categoriesList);
-        }
     }
 }
