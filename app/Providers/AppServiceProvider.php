@@ -17,12 +17,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if (Schema::hasTable('categories')) {
-            $categoriesList = Category::where('status', true)->orderBy('title')->get();
-            if ($categoriesList->count() > 0) {
-                view()->share('categoriesList', $categoriesList);
-            }
-        }
+        //
     }
 
     /**
@@ -32,5 +27,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if (Schema::hasTable('categories')) {
+            $categoriesList = Category::where('status', true)->orderBy('title')->get();
+            if ($categoriesList->count() > 0) {
+                view()->share('categoriesList', $categoriesList);
+            }
+        }
     }
 }
