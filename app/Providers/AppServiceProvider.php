@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Models\Category;
-use App\Services\CategoryService;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -20,7 +19,9 @@ class AppServiceProvider extends ServiceProvider
     {
         if (Schema::hasTable('categories')) {
             $categoriesList = Category::where('status', true)->orderBy('title')->get();
-            view()->share('categoriesList', $categoriesList);
+            if ($categoriesList->count() > 0) {
+                view()->share('categoriesList', $categoriesList);
+            }
         }
     }
 
