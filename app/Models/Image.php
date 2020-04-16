@@ -8,7 +8,7 @@ class Image extends Model
 {
     protected $fillable = ['url'];
 
-    //Relationship
+    // Relationships
     public function ad()
     {
         return $this->belongsTo('App\Models\Ad');

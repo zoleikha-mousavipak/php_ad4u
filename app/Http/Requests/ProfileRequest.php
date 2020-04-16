@@ -24,8 +24,8 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:100',
-            'password' => 'nullable|min:6|confirmed'
+            'name' => 'required|string|max:100',
+            'password' => 'nullable|string|min:8|confirmed',
         ];
     }
 }

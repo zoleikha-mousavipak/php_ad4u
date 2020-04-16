@@ -15,4 +15,9 @@ class BaseService
     {
         return $this->model->all();
     }
+
+    public function paginate($pages)
+    {
+        return $this->model->paginate($pages);
+    }
 }

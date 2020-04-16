@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,11 @@ Route::prefix('profile')->group(function () {
 });
 
 Route::post('search', 'AdController@search')->name('search');
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', 'Admin\AdminController@index')->name('admin.index');
+    Route::resource('users', 'Admin\UserController');
+    Route::resource('ads', 'Admin\AdController');
+    Route::resource('categories', 'Admin\CategoryController');
+    Route::resource('types', 'Admin\TypeController');
+});

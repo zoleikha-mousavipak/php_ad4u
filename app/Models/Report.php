@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Report extends Model
 {
-    protected $fillable = ['description', 'type', 'status'];
+    protected $fillable = ['description', 'status', 'type'];
 
     // Relationships
     public function ad()

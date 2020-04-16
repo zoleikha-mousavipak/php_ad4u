@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\Models\Ad;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
 class AdService extends BaseService
 {
@@ -45,15 +44,11 @@ class AdService extends BaseService
         $ad->description = $request->description;
         $ad->latitude = $request->latitude;
         $ad->longitude = $request->longitude;
-        $ad->user_id = Auth::user()->id;
         $ad->update();
     }
 
     public function deleteAd($ad)
     {
-        foreach ($ad->images as $image) {
-            Storage::disk('images')->delete($image->url);
-        }
         $ad->delete();
     }
 
@@ -79,11 +74,10 @@ class AdService extends BaseService
                 ->where('category_id', $category)
                 ->where(function ($q) use ($query) {
                     $q->where('title', 'LIKE', "%{$query}%")
-                        ->orwhere('description', 'LIKE', "%{$query}%");
+                        ->orWhere('description', 'LIKE', "%{$query}%");
                 })
                 ->paginate(env('APP_PAGINATION'));
         }
-        return $this->model->where('title', 'LIKE', "%{$query}%")->orwhere('description', 'LIKE', "%{$query}%")
-            ->paginate(env('APP_PAGINATION'));
+        return $this->model->where('title', 'LIKE', "%{$query}%")->orWhere('description', 'LIKE', "%{$query}%")->paginate(env('APP_PAGINATION'));
     }
 }

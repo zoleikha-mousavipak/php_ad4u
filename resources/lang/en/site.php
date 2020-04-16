@@ -12,7 +12,9 @@ return [
     'profile' => 'Profile',
     'search' => 'Search',
     'title_description' => 'Enter title or description',
-
+    'update' => 'Update',
+    'status' => 'Active',
+    'access_denied' => 'Access is denied',
 
     // Ads
     'ad_new' => 'New Ad',
@@ -23,7 +25,6 @@ return [
     'please_select' => 'Please Select',
     'ad_all' => 'All Ads',
     'ad_image' => 'Images',
-
 
     // Category
     'all_categories' => 'All categories',
@@ -36,12 +37,16 @@ return [
     'category_real_estate' => 'Real Estate',
     'category_services' => 'Services',
     'category_vehicles' => 'Vehicles',
+    'category_new' => 'New Category',
+    'category_title' => 'Category Title',
 
     // Type
     'type_for_sale' => 'For Sale',
     'type_for_rent' => 'For Rent',
     'type_highest_bidder' => 'Highest Bidder',
     'type_request' => 'Request',
+    'type_new' => 'New Type',
+    'type_title' => 'Type Title',
 
     // Profile
     'profile' => 'Profile',
@@ -54,5 +59,22 @@ return [
     'new_password' => 'New password',
     'confirm_password' => 'Confirm Password',
     'profile_update' => 'Update',
+    'user_new' => 'New User',
+    'user_email' => 'E-Mail Address',
+    'user_name' => 'Name',
+    'password' => 'Password',
+    'register' =>'Register',
+
+    // Admin
+    'admin_page' => 'Admin Page',
+    'admin_panel' => 'Admin Panel',
+    'admin_users' => 'Users',
+    'admin_ads' => 'Ads',
+    'admin_categories' => 'Categories',
+    'admin_types' => 'Types',
+
+
+
+
 
 ];

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\AdRequest;
 use App\Services\AdService;
 use App\Services\CategoryService;
 use App\Services\TypeService;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AdController extends Controller
@@ -23,6 +23,17 @@ class AdController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $ads = $this->adService->paginate(env('APP_PAGINATE'));
+        return view('admin.ads.index', compact('ads'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -31,7 +42,7 @@ class AdController extends Controller
     {
         $categoriesList = $this->categoryService->categoriesList();
         $typesList = $this->typeService->typesList();
-        return view('ads.create', compact('categoriesList', 'typesList'));
+        return view('admin.ads.create', compact('categoriesList', 'typesList'));
     }
 
     /**
@@ -43,7 +54,7 @@ class AdController extends Controller
     public function store(AdRequest $request)
     {
         $ad = $this->adService->createAd($request);
-        return redirect(route('ads.show', $ad));
+        return redirect(route('admin.ads.show', $ad));
     }
 
     /**
@@ -59,7 +70,7 @@ class AdController extends Controller
         if (Auth::user() && (Auth::user()->id === $ad->user_id)) {
             $owner = true;
         }
-        return view('ads.view', compact('ad', 'owner'));
+        return view('admin.ads.view', compact('ad', 'owner'));
     }
 
     /**
@@ -73,7 +84,7 @@ class AdController extends Controller
         $ad = $this->adService->userAd($id);
         $categoriesList = $this->categoryService->categoriesList();
         $typesList = $this->typeService->typesList();
-        return view('ads.edit', compact('ad', 'categoriesList', 'typesList'));
+        return view('admin.ads.edit', compact('ad', 'categoriesList', 'typesList'));
     }
 
     /**
@@ -87,7 +98,7 @@ class AdController extends Controller
     {
         $ad = $this->adService->find($id);
         $this->adService->updateAd($ad, $request);
-        return redirect(route('ads.show', $ad));
+        return redirect(route('admin.ads.show', $ad));
     }
 
     /**
@@ -100,14 +111,6 @@ class AdController extends Controller
     {
         $ad = $this->adService->find($id);
         $this->adService->deleteAd($ad);
-        return redirect(route('welcome'));
-    }
-
-    public function search(Request $request)
-    {
-        $query = $request->get('query');
-        $category = $request->get('category');
-        $results = $this->adService->searchAd($query, $category);
-        return view('ads.search', compact('results'));
+        return redirect(route('admin.ads.index'));
     }
 }
