@@ -17,9 +17,9 @@ class AdController extends Controller
 
     public function __construct(AdService $adService, CategoryService $categoryService, TypeService $typeService)
     {
-        $this->adService = $adService;
         $this->categoryService = $categoryService;
         $this->typeService = $typeService;
+        $this->adService = $adService;
     }
 
     /**
