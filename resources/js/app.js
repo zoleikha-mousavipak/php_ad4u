@@ -6,7 +6,7 @@ $("#locationButton").click(function () { //user clicks button
         navigator.geolocation.getCurrentPosition(function (position) {
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
-            var location = "http://maps.google.com/maps?q=" + latitude + "," + longitude + "&z=15&output=embed";
+            var location = "https://maps.google.com/maps?q=" + latitude + "," + longitude + "&z=15&output=embed";
             $('#userLocation').attr('src', location);
             $('#userLocation').removeClass('hidden');
             $('#userLatitude').val(latitude);

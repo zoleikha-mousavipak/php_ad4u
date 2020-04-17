@@ -102,7 +102,7 @@
                                 <a href="#" id="locationButton"
                                     class="btn btn-primary">{{ __('site.get_location') }}</a>
                                 <iframe class="mt-3 w-100" id="userLocation"
-                                    src="http://maps.google.com/maps?q=
+                                    src="https://maps.google.com/maps?q=
                                 {{ old('latitude', $ad->latitude) }},{{ old('longitude', $ad->longitude) }}&z=15&output=embed"></iframe>
                                 <input type="hidden" name="latitude" value="{{ old('latitude', $ad->latitude) }}"
                                     id="userLatitude" />

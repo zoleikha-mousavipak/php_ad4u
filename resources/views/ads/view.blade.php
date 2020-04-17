@@ -38,7 +38,7 @@
                     @endforeach
                     @endif
                     <iframe class="mt-3 w-100"
-                        src="http://maps.google.com/maps?q={{$ad->latitude}},{{$ad->longitude}}&z=15&output=embed"></iframe>
+                        src="https://maps.google.com/maps?q={{$ad->latitude}},{{$ad->longitude}}&z=15&output=embed"></iframe>
                 </div>
             </div>
         </div>
