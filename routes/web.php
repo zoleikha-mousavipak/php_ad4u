@@ -20,7 +20,7 @@ Route::get('/', 'IndexController@index')->name('welcome');
 Auth::routes();
 Route::resource('ads', 'AdController');
 
-Route::prefix('profile')->group(function () {
+Route::prefix('profile')->middleware('auth')->group(function () {
     Route::get('/', 'ProfileController@index')->name('profile.index');
     Route::get('ads', 'ProfileController@ads')->name('profile.ads');
     Route::get('edit', 'ProfileController@edit')->name('profile.edit');
@@ -29,8 +29,8 @@ Route::prefix('profile')->group(function () {
 
 Route::post('search', 'AdController@search')->name('search');
 
-Route::prefix('admin')->name('admin.')->group(function () {
-    Route::get('/', 'Admin\AdminController@index')->name('admin.index');
+Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
+    Route::get('/', 'Admin\AdminController@index')->name('index');
     Route::resource('users', 'Admin\UserController');
     Route::resource('ads', 'Admin\AdController');
     Route::resource('categories', 'Admin\CategoryController');

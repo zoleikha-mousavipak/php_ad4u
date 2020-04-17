@@ -1,6 +1,3 @@
-
-@if (Auth::user() && Auth::user()->admin === true)
-
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -83,9 +80,3 @@
 </body>
 
 </html>
-
-
-@else
-<h1 align="center">{{ __('site.access_denied') }}.</h1>
-
-@endif

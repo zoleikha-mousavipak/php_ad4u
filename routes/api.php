@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('ads')->name('api.ads.')->group(function () {
+    Route::get('/', 'Api\AdController@index')->name('index');
+    Route::get('{id}', 'Api\AdController@ad')->name('ad');
 });
