@@ -30,7 +30,7 @@
                 <div class="card-body">
                     <h5>{{ __('site.category_'.$ad->category->title) }}</h5>
                     <h6>{{ __('site.type_'.$ad->type->title) }}</h6>
-                    <h3>{{$ad->price}}</h3>
+                    <h3>{{$ad->price}} Euro</h3>
                     <p>{{$ad->description}}</p>
                     @if($ad->images)
                     @foreach($ad->images as $image)

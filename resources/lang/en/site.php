@@ -15,6 +15,7 @@ return [
     'update' => 'Update',
     'status' => 'Active',
     'access_denied' => 'Access is denied',
+    'image' => 'Image',
 
     // Ads
     'ad_new' => 'New Ad',
@@ -25,6 +26,7 @@ return [
     'please_select' => 'Please Select',
     'ad_all' => 'All Ads',
     'ad_image' => 'Images',
+    'get_location' => 'Get Location',
 
     // Category
     'all_categories' => 'All categories',

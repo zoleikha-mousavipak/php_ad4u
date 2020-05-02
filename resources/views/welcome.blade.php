@@ -18,6 +18,11 @@
                     <h6>{{ __('site.type_'.$ad->type->title) }}</h6>
                     <h3>{{$ad->price}} Euro</h3>
                     <p>{{$ad->description}}</p>
+                    @if($ad->images)
+                    @foreach($ad->images as $image)
+                    <img class="w-100" src="/uploads/images/{{ $image->url }}" />
+                    @endforeach
+                    @endif
                     <iframe class="mt-3 w-100"
                         src="https://maps.google.com/maps?q={{$ad->latitude}},{{$ad->longitude}}&z=15&output=embed"></iframe>
                 </div>
