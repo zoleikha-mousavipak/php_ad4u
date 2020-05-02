@@ -9,7 +9,7 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col">
-                           <a href="{{ route('ads.show', $ad) }}">{{ $ad->title }}</a>
+                            <a href="{{ route('ads.show', $ad) }}">{{ $ad->title }}</a>
                         </div>
                     </div>
                 </div>
@@ -23,8 +23,6 @@
                     <img class="w-100" src="/uploads/images/{{ $image->url }}" />
                     @endforeach
                     @endif
-                    <iframe class="mt-3 w-100"
-                        src="https://maps.google.com/maps?q={{$ad->latitude}},{{$ad->longitude}}&z=15&output=embed"></iframe>
                 </div>
             </div>
             @endforeach
