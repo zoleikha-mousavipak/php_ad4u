@@ -9,7 +9,7 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col">
-                           <b><a href="{{ route('ads.show', $ad) }}">{{ $ad->title }}</a></b>
+                           <a href="{{ route('ads.show', $ad) }}">{{ $ad->title }}</a>
                         </div>
                     </div>
                 </div>

@@ -72,6 +72,7 @@ return [
     'admin_ads' => 'Ads',
     'admin_categories' => 'Categories',
     'admin_types' => 'Types',
+    'admin' => 'Admin',
 
 
 
