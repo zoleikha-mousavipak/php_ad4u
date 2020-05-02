@@ -27,6 +27,8 @@ return [
     'ad_all' => 'All Ads',
     'ad_image' => 'Images',
     'get_location' => 'Get Location',
+    'update_location' => 'Update Location',
+    'edit' => 'Edit',
 
     // Category
     'all_categories' => 'All categories',
