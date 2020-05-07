@@ -1,0 +1,56 @@
+// Hero area
+
+.bg-1 {
+    background: url("../images/home/hero.jpg");
+    background-repeat: repeat;
+    background-size: auto;
+  }
+
+  .overly {
+    position: relative;
+  }
+
+  .overly:before {
+    content: '';
+    background: rgba(0, 0, 0, 0.51);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+
+
+.hero-area .content-block h1, .hero-area-2 .content-block h1 {
+    color: #fff;
+    font-size: 65px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    margin-bottom: 15px;
+  }
+
+  @media (max-width: 768px) {
+    .hero-area .content-block h1, .hero-area-2 .content-block h1 {
+      font-size: 40px;
+    }
+  }
+
+  .hero-area .content-block p, .hero-area-2 .content-block p {
+    color: #fff;
+    font-size: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .hero-area .content-block p, .hero-area-2 .content-block p {
+      font-size: 17px;
+    }
+  }
+
+  .hero-area {
+    padding: 100px 0 0;
+  }
+
+  .hero-area .content-block {
+    padding-bottom: 80px;
+  }

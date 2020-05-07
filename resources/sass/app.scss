@@ -4,6 +4,7 @@
 // Variables
 @import 'variables';
 @import 'custom';
+@import 'heroErea';
 
 $fa-font-path: '../webfonts';
 
@@ -11,3 +12,4 @@ $fa-font-path: '../webfonts';
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
 @import '~@fortawesome/fontawesome-free/scss/solid.scss';
+

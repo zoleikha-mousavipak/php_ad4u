@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 
 <body>
@@ -102,6 +103,30 @@
                 </div>
             </div>
         </nav>
+
+
+        <!--===============================
+=            Hero Area            =
+================================-->
+
+        <section class="hero-area  bg-1 text-center overly">
+
+            <!-- Container Start -->
+            <div class="containe ">
+                <div class="row ">
+                    <div class="col-md-12">
+                        <!-- Header Contetnt -->
+                        <div class="content-block">
+                            <h1>Buy & Sell Near You </h1>
+                            <p>Join the millions who buy and sell from each other <br> everyday in local communities
+                                around the world</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container End -->
+        </section>
+
         <main class="py-4">
             @yield('content')
         </main>
