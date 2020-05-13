@@ -30,7 +30,7 @@ class AdRequest extends FormRequest
             'price' => 'required|regex:/^\d+(\.\d{1,2})?$/',
             'latitude' => 'required',
             'longitude' => 'required',
-            'image' => 'required|image|mimes:jpg,gif,jpeg,bmp,png',
+            'image.*' => 'required|image|mimes:jpg,gif,jpeg,bmp,png',
         ];
     }
 }
