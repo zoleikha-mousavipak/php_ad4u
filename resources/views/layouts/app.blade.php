@@ -124,13 +124,16 @@
                     </div>
                 </div>
             </div>
-            <!-- Container End -->
-        </section>
+    </div>
+    </div>
+    </div>
+    <!-- Container End -->
+    </section>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-        @include('layouts.footer')
+    <main class="py-4">
+        @yield('content')
+    </main>
+    @include('layouts.footer')
     </div>
 </body>
 
